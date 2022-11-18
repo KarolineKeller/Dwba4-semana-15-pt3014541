@@ -65,7 +65,7 @@
            <th>Assunto</th>
            <th>Mensagem</th>
            <th>Opções de resposta</th>
-           <th>Ação</th>
+           <th colspan = "2">Ações</th>
           </tr>
           {% for value in contatos %}                        
             <tr>
@@ -75,12 +75,18 @@
               <td>{{contatos[value]['assunto'] }}</td>
               <td>{{contatos[value]['mensagem'] }}</td>
               <td>{{contatos[value]['resposta'] }}</td>
-            <td>
-                <form method='POST' action="/delete/{{value}}">
-                  <input type='submit' value="Eliminar registros" name="deleteOne" />
-                  
-                </form>
-           </td>
+              <td>
+                  <form method='POST' action="/delete/{{value}}">
+                    <input type='submit' value="Eliminar registros" name="deleteOne" />
+                    
+                  </form>
+              </td> 
+              <td> 
+                  <form method='POST' action="/update/{{value}}">
+                    <input type='submit' value="Alterar registro" name="updateOne" />
+                    
+                  </form>
+             </td>
            </tr>  
           {% endfor %}                      
         </table>       
